@@ -3,85 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Model AR Viewer</title>
+    <title>Group Project Showcase</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <style>
-        body {
+        /* General Styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
+            padding: 0;
         }
-        #ar-container {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #e8e8e8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            color: #333;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #8B4513; /* Brown Color */
+        }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #A0522D; /* Lighter Brown Color */
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        ul li:before {
+            content: "-";
             position: absolute;
+            left: 0;
+            color: #8B4513; /* Brown Color */
+        }
+        br {
+            margin-bottom: 20px;
+        }
+        /* Progress Bar */
+        #progress-bar-container {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            overflow: hidden;
+            height: 5px;
+            background: #323232;
+            z-index: 999;
+        }
+        #progress-bar {
+            height: 5px;
+            background: #00bcd4;
+            width: 0%;
+        }
+        /* Project Image */
+        .project-image img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+        /* Code Box */
+        .code-box {
+            background-color: #1e1e1e;
+            color: #e8e8e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+        }
+        .code-box .language {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #00bcd4;
+        }
+        .code-box button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .code-box pre {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+            .container {
+                padding: 15px;
+            }
+            .code-box {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="ar-container"></div>
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div class="container">
+        <section id="problem">
+            <h1>Problem</h1>
+            <p>The current lack of efficient, secure, and scalable networking systems limits data transmission speed and reliability. This hinders productivity and connectivity across organizations.</p>
+            <br>
+        </section>
 
-    <!-- Include Three.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/webxr/ARButton.js"></script>
+        <section id="solution">
+            <h1>Solution</h1>
+            <p>Implement a robust networking solution featuring high-speed data transfer, advanced security protocols, and adaptable architecture to meet the demands of modern enterprises.</p>
+            <br>
+        </section>
 
+        <section id="general-info">
+            <h1>General Information</h1>
+            <p>Details about the project...</p>
+            <br>
+        </section>
+
+        <section id="networking-systems">
+            <h1>Networking Systems</h1>
+            <div class="project-image">
+                <img src="computer-networking-500x500.webp" alt="Networking Systems">
+            </div>
+            <p>
+                Networking systems play a critical role in modern infrastructure, connecting devices, enabling communication,
+                and ensuring seamless data exchange. This project focuses on building a reliable and scalable networking system.
+            </p>
+            <h2>Key Features:</h2>
+            <ul>
+                <li>High-speed data transmission.</li>
+                <li>Robust security protocols.</li>
+                <li>Scalable architecture for growing needs.</li>
+                <li>Efficient error handling and recovery mechanisms.</li>
+            </ul>
+            <h2>Technologies Used:</h2>
+            <ul>
+                <li>TCP/IP Protocol Suite</li>
+                <li>Network Simulation Tools (e.g., GNS3, Cisco Packet Tracer)</li>
+                <li>Firewall and Security Systems</li>
+            </ul>
+            <h2>Applications:</h2>
+            <p>
+                This project can be applied in various domains, including enterprise networks, cloud data centers,
+                and telecommunication infrastructures. The objective is to optimize performance and ensure uninterrupted service.
+            </p>
+            <br>
+            <h2>Code Examples:</h2>
+            <div class="code-box">
+                <span class="language">Python</span>
+                <button onclick="copyCode('code-example1')">Copy</button>
+                <pre id="code-example1"><code class="language-python"># Sample Python Code for Network Simulation
+
+def setup_network():
+    print("Initializing network...")
+    devices = ["Router", "Switch", "PC"]
+    for device in devices:
+        print(f"Configuring {device}")
+    print("Network setup complete!")
+
+setup_network()</code></pre>
+            </div>
+
+            <div class="code-box">
+                <span class="language">Bash</span>
+                <button onclick="copyCode('code-example2')">Copy</button>
+                <pre id="code-example2"><code class="language-bash"># Bash Script for Network Ping Test
+
+echo "Pinging network devices..."
+for IP in 192.168.1.1 192.168.1.2 192.168.1.3; do
+    ping -c 4 $IP
+    echo "Ping complete for $IP"
+done</code></pre>
+            </div>
+
+            <div class="code-box">
+                <span class="language">HTML</span>
+                <button onclick="copyCode('code-example3')">Copy</button>
+                <pre id="code-example3"><code class="language-html"><!-- HTML Code for Network Dashboard -->
+<div>
+    <h1>Network Devices</h1>
+    <ul>
+        <li>Router: Online</li>
+        <li>Switch: Online</li>
+        <li>PC: Offline</li>
+    </ul>
+</div></code></pre>
+            </div>
+
+            <br>
+        </section>
+
+        <section id="experience">
+            <h1>Experience Needed</h1>
+            <p>Understanding of networking protocols, experience with simulation tools, and familiarity with network security concepts are essential for contributing effectively to this project.</p>
+            <br>
+        </section>
+
+        <section id="components">
+            <h1>Required Components</h1>
+            <ul>
+                <li>Simulation tools such as Cisco Packet Tracer</li>
+                <li>Networking devices like routers and switches</li>
+                <li>Software for network configuration and monitoring</li>
+            </ul>
+            <br>
+        </section>
+
+        <section id="path">
+            <h1>Path to Create</h1>
+            <p>
+                The project begins with defining system requirements, followed by designing the architecture, implementing configurations, testing in simulated environments, and deploying in real-world scenarios.
+            </p>
+            <br>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-html.min.js"></script>
     <script>
-        let container, camera, scene, renderer, model;
+        // Progress Bar
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
 
-        function init() {
-            // Set up the scene
-            container = document.getElementById('ar-container');
-            scene = new THREE.Scene();
-
-            // Set up the camera
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            scene.add(camera);
-
-            // Set up the renderer with WebXR support
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.xr.enabled = true;
-            container.appendChild(renderer.domElement);
-
-            // Add the AR Button with permission request
-            document.body.appendChild(ARButton.createButton(renderer, {
-                requiredFeatures: ['hit-test', 'camera-access'],
-                optionalFeatures: ['dom-overlay'],
-                domOverlay: { root: document.body }
-            }));
-
-            // Load the 3D model
-            const loader = new THREE.GLTFLoader();
-            loader.load('source/oman-mosque.glb', (gltf) => {
-                model = gltf.scene;
-                model.scale.set(0.5, 0.5, 0.5); // Adjust scale
-                model.position.set(0, -1, -3); // Adjust position to be visible
-                scene.add(model);
-            });
-
-            // Add lighting
-            const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
-            light.position.set(0.5, 1, 0.25);
-            scene.add(light);
-
-            // Render loop
-            renderer.setAnimationLoop(render);
+        // Copy Button Functionality
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(code);
+            alert("Code copied to clipboard!");
         }
-
-        function render() {
-            if (model) model.rotation.y += 0.005; // Slowly rotate the model
-            renderer.render(scene, camera);
-        }
-
-        // Initialize the AR scene
-        window.addEventListener('load', init);
     </script>
 </body>
 </html>
